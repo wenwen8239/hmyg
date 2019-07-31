@@ -1,0 +1,47 @@
+/* pages/category/index  .wxss */
+.category {
+    height: ~'calc(100vh - 90rpx)';
+    display: flex;
+    .leftMenu {
+        flex: 1;
+        height: 100%;
+        view {
+            height: 80rpx;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .active {
+            color: var(--themeColor);
+            border-left: 5rpx solid currentColor;
+        }
+    }   
+    .rightGoods {
+        flex: 3;
+        .goods_box {
+            .goods_title {
+                height: 100rpx;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .space {
+                    color: #ccc;
+                }
+                .name {
+                    color: #000;
+                    margin: 0 20rpx;
+                }
+            }
+            .goods_content {
+                overflow: hidden;
+                navigator {
+                    width: 33.33%;
+                    float: left;
+                    padding: 10rpx 20rpx;
+                    text-align: center;
+                }
+            }
+        }
+    }
+    
+}

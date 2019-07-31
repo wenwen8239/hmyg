@@ -1,0 +1,43 @@
+// 轮播图样式
+// 计算轮播图的高度
+// 原图高度 / 原图宽度 = 变化后的高度 / 变化后的宽度
+// 750px / 340px = ?? / 750rpx
+.swiper {
+    swiper {
+        height: 340rpx;
+    }
+}
+
+// 分类导航样式
+.cast {
+    display: flex;
+    navigator {
+        flex: 1;
+        padding: 20rpx;
+    }
+}
+
+// 首页楼层样式
+.floor {
+    .floor_title {
+        margin-top: 20rpx;
+    }
+    .floor_list {
+        padding:  0 10rpx;
+        overflow: hidden;
+        navigator {
+            width: 33.33%;
+            float: left;
+            &:nth-last-child(-n+4) {
+                // 原图的宽度 / 原图的高度 = 变化后的高度 / 变化后的宽度
+                // 变化后的高度 = 变化后的宽度 * 原图的宽度 / 原图的高度
+                // height = 750 / 3 * 232 / 386
+                height: 750rpx / 3 * 386 / 232 / 2;
+                border-left: 10rpx solid #fff;
+            }
+            &:nth-last-child(-n+2) {
+                border-top: 10rpx solid #fff;
+            }
+        }
+    }
+}

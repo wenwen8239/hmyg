@@ -19,5 +19,7 @@ Component({
    */
   methods: {
 
+  },
+  onload() {
   }
 })

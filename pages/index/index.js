@@ -1,66 +1,59 @@
-// pages/index/index.js
+// 引入封装好的请求数据的js文件
+import { request } from '../../request/index.js';
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-
+    // 轮播图数组
+    swiperList: [],
+    // 分类导航数组
+    castList: [],
+    // 首页楼层数组
+    floorList: []
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: function () {
+    // 获取轮播图数据
+    this.getSwiperList()
+    // 获取分类导航数据
+    this.getCastList()
+    // 获取首页楼层数据
+    this.getFloorList()
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  // 获取轮播图数据
+  getSwiperList() {
+    // 调用轮播图数据
+    request({url: '/home/swiperdata'})
+      .then(res => {
+        console.log(res)
+        this.setData({
+          swiperList: res
+        })
+      })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  // 获取分类导航数据
+  getCastList() {
+    // 调用轮播图数据
+    request({url: '/home/catitems'})
+      .then(res => {
+        console.log(res)
+        this.setData({
+          castList: res
+        })
+      })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  // 获取首页楼层数据
+  getFloorList() {
+    // 调用轮播图数据
+    request({url: '/home/floordata'})
+      .then(res => {
+        console.log(res)
+        this.setData({
+          floorList: res
+        })
+      })
   }
 })

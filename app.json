@@ -1,7 +1,7 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/category/index",  
+    "pages/category/index",
     "pages/goods_list/index",
     "pages/goods_detail/index",
     "pages/cart/index",
@@ -15,10 +15,11 @@
     "pages/pay/index"
   ],
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#eb4450",
     "navigationBarTitleText": "黑马优购",
-    "navigationBarTextStyle": "black"
+    "enablePullDownRefresh": true,
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#666",
@@ -52,7 +53,5 @@
       }
     ]
   },
-  
-    
   "sitemapLocation": "sitemap.json"
 }

@@ -1,1 +1,28 @@
-/* pages/index/index.wxss */
+.swiper swiper {
+  height: 340rpx;
+}
+.cast {
+  display: flex;
+}
+.cast navigator {
+  flex: 1;
+  padding: 20rpx;
+}
+.floor .floor_title {
+  margin-top: 20rpx;
+}
+.floor .floor_list {
+  padding: 0 10rpx;
+  overflow: hidden;
+}
+.floor .floor_list navigator {
+  width: 33.33%;
+  float: left;
+}
+.floor .floor_list navigator:nth-last-child(-n+4) {
+  height: 207.97413793rpx;
+  border-left: 10rpx solid #fff;
+}
+.floor .floor_list navigator:nth-last-child(-n+2) {
+  border-top: 10rpx solid #fff;
+}
