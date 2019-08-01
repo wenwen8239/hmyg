@@ -1,1 +1,83 @@
 /* pages/goods_detail/index.wxss */
+page {
+  margin-bottom: 60rpx;
+}
+.swiper {
+  height: 57vw;
+  text-align: center;
+}
+.swiper image {
+  width: 50%;
+}
+.goods_price {
+  color: var(--themeColor);
+  font-weight: 600;
+  padding: 10rpx 20rpx;
+  border-top: 10rpx solid #eee;
+}
+.text {
+  font-weight: 600;
+  color: var(--themeColor);
+  padding: 20rpx;
+  border-top: 10rpx solid #eee;
+  border-bottom: 10rpx solid #eee;
+}
+.goods_content {
+  display: flex;
+  padding: 15rpx 10rpx;
+}
+.goods_content .goods_name {
+  flex: 4;
+  font-size: 30rpx;
+}
+.goods_content .goods_icon {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-left: 1rpx solid #999;
+  font-size: 28rpx;
+}
+.goods_content .goods_icon text {
+  font-size: 40rpx;
+}
+.bottom_tool {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 90rpx;
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+  width: 100%;
+  display: flex;
+  font-size: 26rpx;
+}
+.bottom_tool .tool_item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.bottom_tool .tool_item button {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+.bottom_tool .btn_cart {
+  flex: 2;
+  background-color: orange;
+  color: #fff;
+  font-size: 28rpx;
+}
+.bottom_tool .btn_buy {
+  flex: 2;
+  background-color: orangered;
+  color: #fff;
+  font-size: 28rpx;
+}

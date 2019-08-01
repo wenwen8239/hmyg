@@ -3,9 +3,10 @@
 <!-- tab栏 -->
 <Tabs tabs="{{tabs}}" bindTabsChange="handleTabsChange">
     <block wx:if="{{tabs[0].isActive}}">
-        <view class="first_tap"
+        <navigator class="first_tap"
         wx:for="{{goodsList}}"
         wx:key="goods_id"
+        url="/pages/goods_detail/index?goods_id={{item.goods_id}}"
         >
             <!-- 图片 -->
             <view class="image">
@@ -16,7 +17,7 @@
                 <view class="name">{{item.goods_name}}</view>
                 <view class="price">￥{{item.goods_price}}</view>
             </view>
-        </view>
+        </navigator>
     </block>
     <block wx:elif="{{tabs[1].isActive}}">正在开发中...</block>
     <block wx:elif="{{tabs[2].isActive}}">正在开发中...</block>

@@ -5,7 +5,7 @@
 .tabs .tabs_title {
     height: 90rpx;
     display: flex;
-    border-bottom: 1px solid #ccc;
+    /* border-bottom: 3rpx solid #ccc; */
 }
 .tabs .tabs_title view {
     flex: 1;
@@ -15,5 +15,5 @@
 }
 .tabs .tabs_title .active{
     color: var(--themeColor);
-    border-bottom: 1px solid currentColor;
+    border-bottom: 4rpx solid currentColor;
 }

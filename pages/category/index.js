@@ -56,6 +56,8 @@ Page({
   // 获取分类页面数据
   async getCategoryList() {
     const res =  await request({url: '/categories'})
+    // 关闭下拉刷新
+    wx.stopPullDownRefresh()
     // 给全局的Cates参数赋值
     this.Cates = res
     // 把数据存储到本地中
@@ -71,7 +73,6 @@ Page({
   },
   // 点击左边菜单栏
   handleMenuChange(e) {
-    // console.log(e)
     // 获取当前点击的菜单项的索引
     const {index} = e.currentTarget.dataset;
     // 根据当前点击的索引修改右边菜单显示的索引对象

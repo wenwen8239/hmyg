@@ -6,7 +6,7 @@ export const request = (params) => {
     const baseUrl = "https://api.zbztb.cn/api/public/v1";
     // 每请求一次加一次
     times++;
-    console.log(times)
+    // console.log(times)
     // 发送请求前设置加载中文字
     wx.showLoading({
         title: '加载中',
