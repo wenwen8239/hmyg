@@ -13,7 +13,7 @@
     </view>
   </scroll-view>
   <!-- 右侧商品 -->
-  <scroll-view scroll-y class="rightGoods">
+  <scroll-view scroll-y class="rightGoods" scroll-top="{{scrollTop}}">
     <view class="goods_box" 
     wx:for="{{rightGoodsList}}" 
     wx:for-index="index1" 
@@ -27,11 +27,13 @@
       </view>
       <!-- 内容图片 -->
       <view class="goods_content">
-        <navigator 
+        <navigator
         wx:for="{{item1.children}}"
         wx:for-index="index2"
         wx:for-item="item2"
-        wx:key="cat_id">
+        wx:key="cat_id"
+        url="/pages/goods_list/index?cid={{item2.cat_id}}"
+        >
           <image mode="widthFix" src="{{item2.cat_icon}}"></image>
           <view>{{item2.cat_name}}</view>
         </navigator>

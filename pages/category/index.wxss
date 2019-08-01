@@ -39,6 +39,6 @@
 .category .rightGoods .goods_box .goods_content navigator {
   width: 33.33%;
   float: left;
-  padding: 10rpx 20rpx;
+  padding: 10rpx 30rpx;
   text-align: center;
 }
