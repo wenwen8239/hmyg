@@ -1,6 +1,6 @@
 /* pages/goods_detail/index.wxss */
 page {
-  margin-bottom: 60rpx;
+  margin-bottom: 100rpx;
 }
 .swiper {
   height: 57vw;
@@ -38,6 +38,7 @@ page {
   align-items: center;
   border-left: 1rpx solid #999;
   font-size: 28rpx;
+  margin-left: 20rpx;
 }
 .goods_content .goods_icon text {
   font-size: 40rpx;

@@ -1,9 +1,26 @@
 /* pages/cart/index.wxss */
-.address {
+/* 收货地址按钮 */
+.address_button {
   padding: 40rpx 0;
   border-bottom: 10rpx solid #eee;
 }
-button {
+.address_button button {
   width: 38%; 
   font-size: 30rpx;
+}
+/* 收货地址信息 */
+.address_info {
+  padding: 20rpx;
+  border-bottom: 6rpx solid var(--themeColor);
+}
+.address_info .info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+/* .address_info .info .name {
+  flex: 1;
+} */
+.address_info .info .tel {
+  text-align: right;
 }

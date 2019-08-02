@@ -7,15 +7,10 @@ Page({
     // 定义一个空对象存储地址信息
     address: {}
   },
-  onLoad() {
-    // this.setData({
-    //   address: wx.getStorageSync('address') 
-    // })
-  },
   // 页面显示的时候触发
   onShow(){
     this.setData({
-      address:wx.getStorageSync("address")||{}
+      address:wx.getStorageSync("address") || {}
     });
   },
   // 点击添加收货地址

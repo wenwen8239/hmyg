@@ -1,9 +1,13 @@
 <!-- 购物车页面 -->
 <!-- 显示按钮 -->
-<view class="address" wx:if="{{!(address&&address.all)}}">
+<view class="address_button" wx:if="{{!(address&&address.all)}}">
   <button bindtap="handleChooseAddress"> + 添加收货地址</button>
 </view>
 <!-- 显示收货地址 -->
-<view wx:else>
-{{address.all}}
+<view wx:else class="address_info">
+  <view class="info">
+    <view class="name">收货人：{{address.userName}}</view>
+    <view class="tel">电话：{{address.telNumber}}</view>
+  </view>
+  <view class="address">收货地址：{{address.all}}</view>
 </view>
