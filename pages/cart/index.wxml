@@ -1,2 +1,9 @@
-<!--pages/cart/index.wxml-->
-<text>pages/cart/index.wxml</text>
+<!-- 购物车页面 -->
+<!-- 显示按钮 -->
+<view class="address" wx:if="{{!(address&&address.all)}}">
+  <button bindtap="handleChooseAddress"> + 添加收货地址</button>
+</view>
+<!-- 显示收货地址 -->
+<view wx:else>
+{{address.all}}
+</view>

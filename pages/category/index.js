@@ -2,6 +2,8 @@
 import { request } from '../../request/index.js';
 // 支持es7的async语法
 import regeneratorRuntime from '../../lib/runtime/runtime';
+// 引入封装好的获取存储本地数据js文件
+import { getStorageCates,setStorageCates } from '../../utils/storage';
 Page({
   /**
    * 页面的初始数据
@@ -23,7 +25,7 @@ Page({
    */
   onLoad: function () {
     // 获取本地缓存的数据
-    const cates = wx.getStorageSync('cates');
+    const cates = getStorageCates();
     // 判断是否有缓存数据
     if (!cates) {
       // 如果没有缓存数据 发送请求 缓存数据
@@ -61,7 +63,7 @@ Page({
     // 给全局的Cates参数赋值
     this.Cates = res
     // 把数据存储到本地中
-    wx.setStorageSync('cates', {time: Date.now(), data: this.Cates});
+    setStorageCates({time: Date.now(), data: this.Cates});
     // 设置左边菜单数据
     const leftMenuList = this.Cates.map(v => ({cat_id: v.cat_id,cat_name: v.cat_name}))
     // 设置右边商品数据

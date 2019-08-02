@@ -1,1 +1,9 @@
 /* pages/cart/index.wxss */
+.address {
+  padding: 40rpx 0;
+  border-bottom: 10rpx solid #eee;
+}
+button {
+  width: 38%; 
+  font-size: 30rpx;
+}

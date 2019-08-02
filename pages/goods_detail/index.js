@@ -2,6 +2,8 @@
 import { request } from '../../request/index.js';
 // 支持es7的async语法
 import regeneratorRuntime from '../../lib/runtime/runtime';
+// 引入封装好的获取存储本地数据js文件
+import { getStorageCart,setStorageCart } from '../../utils/storage';
 Page({
   data: {
     // 商品详情数组
@@ -23,7 +25,9 @@ Page({
       goodsDetail: {
         goods_name: res.goods_name,
         goods_price: res.goods_price,
-        goods_introduce: res.goods_introduce,
+        // goods_introduce: res.goods_introduce,
+        // 全部替换 .webp ->  .jpg
+        goods_introduce: res.goods_introduce.replace(/\.webp/g,'.jpg'),
         pics: res.pics
       }
     })
@@ -42,9 +46,8 @@ Page({
   },
   // 点击加入购物车
   handleCartAdd() {
-    // console.log('点击了加入购物车')
     // 获取本地存储中的购物车对象
-    let cart = wx.getStorageSync('cart') || {};
+    let cart = getStorageCart() || {};
     // 判断当前商品是否存中
     if (cart[this.GoodObj.goods_id]) {
       // 如果数据已经存中在数量++
@@ -57,7 +60,7 @@ Page({
       cart[this.GoodObj.goods_id].num = 1;
     }
     // 把数据存储到内存中
-    wx.setStorageSync('cart',cart) 
+    setStorageCart(cart);
     // 加入购物车成功弹出提示
     wx.showToast({
       title: '添加成功',
