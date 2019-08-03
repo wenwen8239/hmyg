@@ -5,7 +5,7 @@
   border-bottom: 10rpx solid #eee;
 }
 .address_button button {
-  width: 38%; 
+  width: 38%;
   font-size: 30rpx;
 }
 /* 收货地址信息 */
@@ -18,9 +18,107 @@
   justify-content: space-between;
   margin-bottom: 20rpx;
 }
-/* .address_info .info .name {
-  flex: 1;
-} */
 .address_info .info .tel {
   text-align: right;
+}
+.shop_cart {
+  font-size: 34rpx;
+  color: var(--themeColor);
+  padding: 20rpx;
+  border-bottom: 10rpx solid #eee;
+}
+.cart_content .cart_item {
+  padding: 20rpx;
+  display: flex;
+  border-bottom: 1px solid #999;
+}
+.cart_content .cart_item .cart_check {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cart_content .cart_item .cart_img {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cart_content .cart_item .cart_img image {
+  width: 80%;
+}
+.cart_content .cart_item .cart_info {
+  flex: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.cart_content .cart_item .cart_info .cart_info_name {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  font-size: 28rpx;
+}
+.cart_content .cart_item .cart_info .cart_info_text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cart_content .cart_item .cart_info .cart_info_text .cart_info_price {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: var(--themeColor);
+}
+.cart_content .cart_item .cart_info .cart_info_text .cart_info_tool {
+  display: flex;
+}
+.cart_content .cart_item .cart_info .cart_info_text .cart_info_tool .cart_info_edit {
+  width: 40rpx;
+  height: 40rpx;
+  border: 1px solid #999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cart_content .cart_item .cart_info .cart_info_text .cart_info_tool .cart_info_num {
+  width: 60rpx;
+  height: 40rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cart_total {
+  display: flex;
+  height: 90rpx;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #ddd;
+}
+.cart_total .allCheck {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cart_total .price {
+  flex: 3;
+  text-align: right;
+  padding-right: 10rpx;
+}
+.cart_total .price .total text {
+  color: var(--themeColor);
+}
+.cart_total .price .freight_tips {
+  font-size: 28rpx;
+}
+.cart_total .pay {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  background-color: var(--themeColor);
 }

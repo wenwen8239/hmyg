@@ -5,12 +5,21 @@ import regeneratorRuntime from '../../lib/runtime/runtime';
 Page({
   data: {
     // 定义一个空对象存储地址信息
-    address: {}
+    address: {},
+    // 定义购物车列表数据
+    cart: {},
+    // 定义一个总价
+    totalPrice: 0,
+    // 定义商品总量
+    totalNum: 0,
+    // 定义全选
+    ischeckAll: false
   },
   // 页面显示的时候触发
   onShow(){
     this.setData({
-      address:wx.getStorageSync("address") || {}
+      address: wx.getStorageSync("address") || {},
+      cart: wx.getStorageSync("cart") || {}
     });
   },
   // 点击添加收货地址
@@ -34,6 +43,5 @@ Page({
     res2.all = res2.provinceName + res2.cityName + res2.countyName + res2.detailInfo;
     // 把地址信息存储到本地存储中
     wx.setStorageSync('address', res2);
-    console.log(res2);
   }
 })

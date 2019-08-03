@@ -56,8 +56,10 @@ Page({
     else {
       // 添加当前商品到对象中
       cart[this.GoodObj.goods_id] = this.GoodObj;
-      // 设置当前商品数据为1
+      // 给当前商品设置数量为1
       cart[this.GoodObj.goods_id].num = 1;
+      // 给当前商品设置选中状态为true
+      cart[this.GoodObj.goods_id].checked = true;
     }
     // 把数据存储到内存中
     setStorageCart(cart);
