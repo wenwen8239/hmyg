@@ -76,6 +76,40 @@ Page({
         ischeckAll = false;
       }
     });
-    this.setData({ ischeckAll,totalPrice,totalNum })
+    this.setData({ cart,ischeckAll,totalPrice,totalNum })
+    // 把数据重新设置到本地存储中
+    wx.setStorageSync('cart', cart)
+  },
+  // 点击商品切换选中状态
+  handleCartChange(e) {
+    console.log(e)
+    // 获取当前点击的id
+    const {id} = e.currentTarget.dataset;
+    // 获取购物车对象
+    const {cart} = this.data;
+    // 把购物车对应id的数据的选中状态取反
+    cart[id].checked = !cart[id].checked;
+    // 把数据重新设置回data中
+    
+    // 重新计算全选状态
+    this.setCart( cart );
+  },
+  // 实现全选反选
+  handleCheckedAll() {
+    // 获取全选按钮状态和购物车数据
+    let {ischeckAll,cart} = this.data;
+    // 把全选按钮的状态取反
+    ischeckAll = !ischeckAll;
+    // 循环购物车对象
+    for (const key in cart) {
+      // 判断该属性是不是对象自己
+      if (cart.hasOwnProperty(key)) {
+        // 将购物车列表的单选按钮状态设置为全选按钮的状态
+        cart[key].checked = ischeckAll;
+      }
+    }
+    // 把数据传入setCart函数中
+    this.setCart(cart);
+
   }
 })

@@ -17,7 +17,7 @@
   <view class="cart_item" wx:for="{{cart}}" wx:for-index="key" wx:for-item="value" wx:key="value">
     <!-- 复选框 -->
     <view class="cart_check">
-      <checkbox-group bindchange="">
+      <checkbox-group bindchange="handleCartChange" data-id="{{value.goods_id}}">
         <checkbox color="red" checked="{{value.checked}}"></checkbox>
       </checkbox-group>
     </view>
@@ -46,7 +46,7 @@
 <view class="cart_total">
   <!-- 全选 -->
   <view class="allCheck">
-    <checkbox-group bindchange="">
+    <checkbox-group bindchange="handleCheckedAll">
       <checkbox color="red" checked="{{ischeckAll}}"></checkbox>全选
     </checkbox-group>
   </view>
