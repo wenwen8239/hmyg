@@ -47,12 +47,12 @@
   <!-- 全选 -->
   <view class="allCheck">
     <checkbox-group bindchange="">
-      <checkbox color="red"></checkbox>全选
+      <checkbox color="red" checked="{{ischeckAll}}"></checkbox>全选
     </checkbox-group>
   </view>
   <view class="price">
-    <view class="total">合计：<text>￥1111</text></view>
+    <view class="total">合计：<text>￥{{totalPrice}}</text></view>
     <view class="freight_tips">包含运费</view>
   </view>
-  <view class="pay">结算(1)</view>
+  <view class="pay">结算({{totalNum}})</view>
 </view>

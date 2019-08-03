@@ -17,10 +17,14 @@ Page({
   },
   // 页面显示的时候触发
   onShow(){
-    this.setData({
-      address: wx.getStorageSync("address") || {},
-      cart: wx.getStorageSync("cart") || {}
-    });
+    // 从本地存储中获取详细地址信息
+    const address = wx.getStorageSync("address") || {};
+    // 从本地存储中获取所有商品信息
+    const cart = wx.getStorageSync("cart") || {};
+    // 把数据重新设置回data中
+    this.setData({ address,cart });
+    // 调用商品信息函数
+    this.setCart(cart)
   },
   // 点击添加收货地址
   async handleChooseAddress() {
@@ -43,5 +47,35 @@ Page({
     res2.all = res2.provinceName + res2.cityName + res2.countyName + res2.detailInfo;
     // 把地址信息存储到本地存储中
     wx.setStorageSync('address', res2);
+  },
+  // 设置商品信息
+  setCart(cart) {
+    // 把商品信息对象转换成数组
+    let cartArr = Object.values(cart);
+    // 1、计算全选
+    // every接收一个回调函数，这个回调函数都返回true的时候every的返回值才是true，否则是false
+    // let ischeckAll = cartArr.every(v => v.checked);
+
+    // 一开始全选按钮为被选中
+    let ischeckAll = true;
+    // 计算总价格
+    let totalPrice = 0;
+    // 计算总数量
+    let totalNum = 0;
+    // 遍历商品数组
+    cartArr.forEach(v => {
+      if (v.checked) {
+        // 设置总价格
+        totalPrice = v.num * v.goods_price;
+        // 设置总数量
+        totalNum += v.num;
+      }
+      else {
+        // 如果没有商品
+        // 全选按钮不要选中
+        ischeckAll = false;
+      }
+    });
+    this.setData({ ischeckAll,totalPrice,totalNum })
   }
 })
