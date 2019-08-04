@@ -1,5 +1,5 @@
 // 引入封装好的获取收货地址的js文件
-import { getSetting,openSetting,chooseAddress } from '../../utils/asyncWX';
+import { getSetting,openSetting,chooseAddress,showModel } from '../../utils/asyncWX';
 // 支持es7的async语法
 import regeneratorRuntime from '../../lib/runtime/runtime';
 Page({
@@ -66,7 +66,7 @@ Page({
     cartArr.forEach(v => {
       if (v.checked) {
         // 设置总价格
-        totalPrice = v.num * v.goods_price;
+        totalPrice += v.num * v.goods_price;
         // 设置总数量
         totalNum += v.num;
       }
@@ -110,6 +110,34 @@ Page({
     }
     // 把数据传入setCart函数中
     this.setCart(cart);
-
+  },
+  // 编辑商品数量
+  async handleEditNumber(e) {
+    console.log(e)
+    // 获取当前点击元素身上的自定义属性
+    const {id,opeation} = e.currentTarget.dataset;
+    // 获取购物车对象
+    const {cart} = this.data;
+    // 判断当前操作元素的数量是否为1和当前操作是减少,进行商品删除操作 
+    if (cart[id].num === 1 && opeation === -1) {
+      // console.log("删除商品")
+      // 弹出提示框询问是否要删除商品
+      const res = await showModel({content: '您确定要删除该商品吗?'});
+      if (res.confirm) {
+        // console.log('用户点击确定')
+        // 使用delete方式删除
+        delete cart[id];
+        // 把数据设置回setCart中
+        this.setCart(cart);
+      } else if (res.cancel) {
+        console.log('用户点击取消')
+      }
+    }
+    else {
+      // 修改购物车商品的数量，对应id的商品进行对应的数量操作
+      cart[id].num += opeation;
+    }
+    // 把数据重新传入seCart函数中
+    this.setCart(cart);
   }
 })

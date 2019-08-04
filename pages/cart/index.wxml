@@ -34,9 +34,9 @@
         <view class="cart_info_price">￥{{value.goods_price}}</view>
         <!-- 商品数量 -->
         <view class="cart_info_tool">
-          <view class="cart_info_edit">-</view>
+          <view class="cart_info_edit" bindtap="handleEditNumber" data-opeation="{{-1}}" data-id="{{value.goods_id}}">-</view>
           <view class="cart_info_num">{{value.num}}</view>
-          <view class="cart_info_edit">+</view>
+          <view class="cart_info_edit" bindtap="handleEditNumber" data-opeation="{{1}}" data-id="{{value.goods_id}}">+</view>
         </view>
       </view>
     </view>

@@ -42,3 +42,16 @@ export const chooseAddress = () => {
           
     })
 }
+
+// 封装使用promist的方式弹出模态框
+export const showModel = ({content}) => {
+    return new Promise((reslove,reject) => {
+        wx.showModal({
+            title: '提示',
+            content,
+            success (res) {
+                reslove(res)
+            }
+        })
+    })
+} 
