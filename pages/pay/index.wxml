@@ -1,2 +1,40 @@
-<!--pages/pay/index.wxml-->
-<text>pages/pay/index.wxml</text>
+<!-- 购物车页面 -->
+<!-- 显示收货地址 -->
+<view class="address_info">
+  <view class="info">
+    <view class="name">收货人：{{address.userName}}</view>
+    <view class="tel">电话：{{address.telNumber}}</view>
+  </view>
+  <view class="address">收货地址：{{address.all}}</view>
+</view>
+<!-- 购物车列表 -->
+<view class="shop_cart">购物车</view>
+<view class="cart_content">
+  <view class="cart_item" wx:for="{{cart}}" wx:for-index="key" wx:for-item="value" wx:key="value">
+    <!-- 图片 -->
+    <view class="cart_img">
+      <image mode="widthFix" src="{{value.goods_small_logo}}"></image>
+    </view>
+    <!-- 商品信息 -->
+    <view class="cart_info">
+      <!-- 商品名称 -->
+      <view class="cart_info_name">{{value.goods_name}}</view>
+      <view class="cart_info_text">
+        <!-- 商品价格 -->
+        <view class="cart_info_price">￥{{value.goods_price}}</view>
+        <!-- 商品数量 -->
+        <view class="cart_info_tool">
+          <view class="cart_info_num">× {{value.num}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 购物车结算 -->
+<view class="cart_total">
+  <view class="price">
+    <view class="total">合计：<text>￥{{totalPrice}}</text></view>
+    <view class="freight_tips">包含运费</view>
+  </view>
+  <view class="pay">支付</view>
+</view>

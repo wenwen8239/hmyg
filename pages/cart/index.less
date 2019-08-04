@@ -1,5 +1,8 @@
 /* pages/cart/index.wxss */
 /* 收货地址按钮 */
+page {
+  margin-bottom: 100rpx;
+}
 .address_button {
   padding: 40rpx 0;
   border-bottom: 10rpx solid #eee;
@@ -89,6 +92,23 @@
       }
     }
   }
+  .empty {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100rpx;
+    image {
+      width: 50%;
+    }
+    .btn {
+      padding: 20rpx 40rpx;
+      color: #fff;
+      background-color: var(--themeColor);
+      border-radius: 10rpx;
+      margin-top: 20rpx;
+    }
+  }
 }
 // 购物车底部结算
 .cart_total {
@@ -99,6 +119,7 @@
   bottom: 0;
   width: 100%;
   border-top: 1px solid #ddd;
+  background-color: #fff;
   .allCheck {
     flex: 1;
     display: flex;

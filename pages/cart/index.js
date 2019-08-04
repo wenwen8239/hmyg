@@ -53,7 +53,9 @@ Page({
     // 定义商品总量
     totalNum: 0,
     // 定义全选
-    ischeckAll: false
+    ischeckAll: false,
+    // 购物车有没有商品
+    hasGoods: false
   },
   // 页面显示的时候触发
   onShow(){
@@ -116,7 +118,11 @@ Page({
         ischeckAll = false;
       }
     });
-    this.setData({ cart,ischeckAll,totalPrice,totalNum })
+    // 判断当购物车中没有数据的时候全选按钮为不选中
+    ischeckAll = cartArr.length === 0 ? false: ischeckAll;
+    // 判断当购物车中没有数据 
+    const hasGoods = cartArr.length ? true : false;
+    this.setData({ cart,ischeckAll,totalPrice,totalNum,hasGoods })
     // 把数据重新设置到本地存储中
     wx.setStorageSync('cart', cart)
   },

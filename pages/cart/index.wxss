@@ -1,5 +1,8 @@
 /* pages/cart/index.wxss */
 /* 收货地址按钮 */
+page {
+  margin-bottom: 100rpx;
+}
 .address_button {
   padding: 40rpx 0;
   border-bottom: 10rpx solid #eee;
@@ -88,6 +91,23 @@
   justify-content: center;
   align-items: center;
 }
+.cart_content .empty {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100rpx;
+}
+.cart_content .empty image {
+  width: 50%;
+}
+.cart_content .empty .btn {
+  padding: 20rpx 40rpx;
+  color: #fff;
+  background-color: var(--themeColor);
+  border-radius: 10rpx;
+  margin-top: 20rpx;
+}
 .cart_total {
   display: flex;
   height: 90rpx;
@@ -96,6 +116,7 @@
   bottom: 0;
   width: 100%;
   border-top: 1px solid #ddd;
+  background-color: #fff;
 }
 .cart_total .allCheck {
   flex: 1;
