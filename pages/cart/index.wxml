@@ -54,5 +54,5 @@
     <view class="total">合计：<text>￥{{totalPrice}}</text></view>
     <view class="freight_tips">包含运费</view>
   </view>
-  <view class="pay">结算({{totalNum}})</view>
+  <view class="pay" bindtap="handlePay">结算({{totalNum}})</view>
 </view>

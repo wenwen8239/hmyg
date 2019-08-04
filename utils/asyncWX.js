@@ -55,3 +55,14 @@ export const showModel = ({content}) => {
         })
     })
 } 
+
+// 封装使用promise的方式弹出消息提示框
+export const showToast = ({title}) => {
+    return new Promise((resolve,reject) => {
+        wx.showToast({
+            title,
+            icon: 'none',
+            duration: 2000
+          })
+    })
+}
