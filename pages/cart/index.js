@@ -2,6 +2,8 @@
 import { getSetting,openSetting,chooseAddress,showModel,showToast } from '../../utils/asyncWX';
 // 支持es7的async语法
 import regeneratorRuntime from '../../lib/runtime/runtime';
+// 引入封装好的获取存储信息到本地存储的js文件
+import {setStorageAddress,getStorageAddress} from '../../utils/storage';
 /* 购物车逻辑
   1、实现收货地址按钮
     a、调用微信小程序自带的获取用户权限 wx-getSetting，判断用户进行的操作
@@ -88,7 +90,8 @@ Page({
     // 给地址信息增加一条完整的地址信息
     res2.all = res2.provinceName + res2.cityName + res2.countyName + res2.detailInfo;
     // 把地址信息存储到本地存储中
-    wx.setStorageSync('address', res2);
+    // wx.setStorageSync('address', res2);
+    setStorageAddress(res);
   },
   // 设置商品信息
   setCart(cart) {
@@ -124,7 +127,8 @@ Page({
     const hasGoods = cartArr.length ? true : false;
     this.setData({ cart,ischeckAll,totalPrice,totalNum,hasGoods })
     // 把数据重新设置到本地存储中
-    wx.setStorageSync('cart', cart)
+    // wx.setStorageSync('cart', cart)
+    setStorageAddress('cart',cart);
   },
   // 点击商品切换选中状态
   handleCartChange(e) {

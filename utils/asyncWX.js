@@ -62,7 +62,24 @@ export const showToast = ({title}) => {
         wx.showToast({
             title,
             icon: 'none',
-            duration: 2000
+            success: (res) => {
+                resolve(res);
+              }
           })
+    })
+}
+
+// 封装使用promise的方式调用接口获取登录凭证
+export const login = () => {
+    return new Promise((resolve,reject) => {
+        wx.login({
+            timeout:10000,
+            success: (res) => {
+                resolve(res)
+            },
+            fail: (err) => {
+                reject(err)
+            }
+        });
     })
 }

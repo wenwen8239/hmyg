@@ -1,8 +1,7 @@
-// 引入封装好的获取收货地址的js文件
-import { getSetting,openSetting,chooseAddress,showModel,showToast } from '../../utils/asyncWX';
 // 支持es7的async语法
 import regeneratorRuntime from '../../lib/runtime/runtime';
-
+// 引入封装好的获取存储信息到本地存储的js文件
+import { getStorageToken,getStorageCart,getStorageAddress } from '../../utils/storage';
 Page({
   data: {
     // 定义一个空对象存储地址信息
@@ -17,9 +16,11 @@ Page({
   // 页面显示的时候触发
   onShow(){
     // 从本地存储中获取详细地址信息
-    const address = wx.getStorageSync("address") || {};
+    // const address = wx.getStorageSync("address") || {};
+    const address = getStorageAddress() || {};
     // 从本地存储中获取所有商品信息
-    const cart = wx.getStorageSync("cart") || {};
+    // const cart = wx.getStorageSync("cart") || {};
+    const cart = getStorageCart() || {};
     // 把商品信息对象转换成数组
     let cartArr = Object.values(cart);
     // 计算总价格
@@ -34,13 +35,24 @@ Page({
         // 设置总数量
         totalNum += v.num;
       }
-      else {
-        // 如果没有商品
-        // 全选按钮不要选中
-        ischeckAll = false;
-      }
     });
     // 把数据重新设置回data中
     this.setData({ address,cart,totalPrice,totalNum });
+  },
+  // 点击支付按钮
+  handleOrderPay() {
+    // 获取本地存储中的token
+    // const token = wx.getStorageSync('token');
+    const token = getStorageToken();
+    // 判断本地存储中有没有token
+    if (!token) {
+      // 跳转得到授权页面
+      wx.navigateTo({
+        url: '/pages/auth/index',
+      }); 
+    }
+    else {
+      console.log('继续向下执行')
+    }
   }
 })

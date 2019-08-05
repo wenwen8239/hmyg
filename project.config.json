@@ -22,7 +22,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.7.7",
-	"appid": "wxfd8ac2abc64ca767",
+	"appid": "wxfb52f2d7b2f6123a",
 	"projectname": "hmyg",
 	"cloudfunctionTemplateRoot": "",
 	"debugOptions": {
@@ -48,7 +48,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 5,
 			"list": [
 				{
 					"id": -1,
@@ -82,6 +82,13 @@
 					"id": -1,
 					"name": "支付页面",
 					"pathName": "pages/pay/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "授权页面",
+					"pathName": "pages/auth/index",
 					"scene": null
 				}
 			]

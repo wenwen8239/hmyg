@@ -1,66 +1,31 @@
-// pages/auth/index.js
+// 引入封装好的请求数据的js文件
+import { request } from '../../request/index.js';
+// 支持es7的async语法
+import regeneratorRuntime from '../../lib/runtime/runtime';
+// 引入封装好的使用promise实现请求的js文件
+import { login } from '../../utils/asyncWX';
+// 引入封装好的获取存储信息到本地存储的js文件
+import { setStorageToken } from '../../utils/storage';
 Page({
-
-  /**
-   * 页面的初始数据
-   */
-  data: {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  // 授权获取用户信息
+  async handleGetUserInfo(e) {
+    console.log(e)
+    // 获取对应的参数
+    const {encryptedData,rawData,iv,signature} = e.detail;
+    // 获取登录后的code属性
+    const {code} = await login();
+    // 把需要传递的参数合并成一个对象
+    const postParams = {encryptedData,rawData,iv,signature,code};
+    // 调用获取用户token的接口
+    const {token} = await request({url: '/users/wxlogin',method: 'post',data: postParams})
+    // 把token存储到本地存储中
+    // wx.setStorageSync('token', token);
+    setStorageToken(token);
+    // 然后跳转回支付页面
+    wx.navigateBack({
+      // 返回上一个页面
+      delta: 1
+    });
   }
-})
+});
+  
