@@ -3,7 +3,7 @@ import { getSetting,openSetting,chooseAddress,showModel,showToast } from '../../
 // 支持es7的async语法
 import regeneratorRuntime from '../../lib/runtime/runtime';
 // 引入封装好的获取存储信息到本地存储的js文件
-import {setStorageAddress,getStorageAddress} from '../../utils/storage';
+import { setStorageAddress,getStorageAddress,getStorageCart,setStorageCart } from '../../utils/storage';
 /* 购物车逻辑
   1、实现收货地址按钮
     a、调用微信小程序自带的获取用户权限 wx-getSetting，判断用户进行的操作
@@ -62,9 +62,11 @@ Page({
   // 页面显示的时候触发
   onShow(){
     // 从本地存储中获取详细地址信息
-    const address = wx.getStorageSync("address") || {};
+    // const address = wx.getStorageSync("address") || {};
+    const address = getStorageAddress() || {};
     // 从本地存储中获取所有商品信息
-    const cart = wx.getStorageSync("cart") || {};
+    // const cart = wx.getStorageSync("cart") || {};
+    const cart = getStorageCart() || {};
     // 把数据重新设置回data中
     this.setData({ address,cart });
     // 调用商品信息函数
@@ -72,15 +74,16 @@ Page({
   },
   // 点击添加收货地址
   async handleChooseAddress() {
+    console.log(1)
     // 先获取用户对应用的授权信息
     const res1 = await getSetting();
+    console.log(res1,'res1')
     // 获取用户授权状态
     const scopeAddress = res1.authSetting['scope.address'];
     // 判断用户授权状态
     if (scopeAddress === true || scopeAddress === undefined) {
-      
-    }
-    else {
+      // 直接调用获取用户的收货地址
+    } else {
       // 如果用户点击了取消
       // 先打开授权页面
       await openSetting();
@@ -91,7 +94,7 @@ Page({
     res2.all = res2.provinceName + res2.cityName + res2.countyName + res2.detailInfo;
     // 把地址信息存储到本地存储中
     // wx.setStorageSync('address', res2);
-    setStorageAddress(res);
+    setStorageAddress(res2);
   },
   // 设置商品信息
   setCart(cart) {
@@ -111,7 +114,7 @@ Page({
     cartArr.forEach(v => {
       if (v.checked) {
         // 设置总价格
-        totalPrice += v.num * v.goods_price;
+        totalPrice += v.num * v.goods_price;  
         // 设置总数量
         totalNum += v.num;
       }
@@ -128,7 +131,7 @@ Page({
     this.setData({ cart,ischeckAll,totalPrice,totalNum,hasGoods })
     // 把数据重新设置到本地存储中
     // wx.setStorageSync('cart', cart)
-    setStorageAddress('cart',cart);
+    setStorageCart(cart);
   },
   // 点击商品切换选中状态
   handleCartChange(e) {

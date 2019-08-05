@@ -1,1 +1,85 @@
 /* pages/user/index.wxss */
+page {
+  background-color: #efefef;
+}
+.user_bg {
+  height: 45vh;
+  position: relative;
+  overflow: hidden;
+}
+.user_bg .user_big_img {
+  filter: blur(7rpx);
+}
+.user_bg .user_info {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%);
+}
+.user_bg .user_info image {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+}
+.user_bg .user_info .user_nickname {
+  text-align: center;
+  margin-top: 30rpx;
+}
+.user_content {
+  padding: 0 20rpx;
+  font-size: 28rpx;
+}
+.user_content .collect {
+  position: relative;
+  background-color: #fff;
+  display: flex;
+  padding: 10rpx;
+  margin-top: -50rpx;
+}
+.user_content .collect .collect_item {
+  flex: 1;
+  text-align: center;
+}
+.user_content .collect .collect_item .num {
+  color: var(--themeColor);
+  margin-bottom: 20rxp;
+}
+.order {
+  margin-top: 20rpx;
+  background-color: #fff;
+}
+.order .order_title {
+  padding: 20rpx;
+  border-bottom: 1rpx solid #eee;
+}
+.order .order_warp {
+  display: flex;
+  padding: 15rpx 0;
+}
+.order .order_warp navigator {
+  flex: 1;
+  text-align: center;
+}
+.order .order_warp navigator .iconfont {
+  color: var(--themeColor);
+}
+.address,
+.contact_warp,
+.recommend {
+  background-color: #fff;
+  margin-top: 20rpx;
+}
+.address navigator,
+.contact_warp navigator,
+.recommend navigator {
+  padding: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.contact_warp navigator {
+  border-bottom: 1rpx solid #eee;
+}
+.recommend {
+  margin-bottom: 100rpx;
+}

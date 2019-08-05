@@ -12,7 +12,7 @@
     <view class="goods_name">{{goodsDetail.goods_name}}</view>
     <!-- 右边收藏 -->
     <view class="goods_icon">
-        <text class="iconfont icon-shoucang"></text>
+        <text class="iconfont iconshoucang1"></text>
         <view>收藏</view>
     </view>
 </view>
@@ -25,17 +25,17 @@
 <!-- 底部工具栏 -->
 <view class="bottom_tool">
     <view class="tool_item">
-        <text class="iconfont icon-kefu"></text>
+        <text class="iconfont iconkefu"></text>
         <view>客服</view>
         <button open-type="contact"></button> 
     </view>
     <view class="tool_item">
-        <text class="iconfont icon-yixianshi-"></text>
+        <text class="iconfont iconfenxiangcopy"></text>
         <view>分享</view>
         <button open-type="share"></button>
     </view>
     <navigator open-type="switchTab" class="tool_item" url="/pages/cart/index">
-        <text class="iconfont icon-gouwuche"></text>
+        <text class="iconfont icongouwuche"></text>
         <view>购物车</view>
 
     </navigator>

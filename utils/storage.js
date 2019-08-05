@@ -39,3 +39,14 @@ export const getStorageToken = () => {
 export const setStorageToken = (token) => {
     return wx.setStorageSync('token',token)
 }
+
+// 获取本地存储中的用户信息
+export const getStorageUserInfo = () => {
+    return wx.getStorageSync('userInfo');
+      
+}
+
+// 把用户信息存储到本地存储中
+export const setStorageUserInfo = (userInfo) => {
+    return wx.setStorageSync('userInfo',userInfo);
+}

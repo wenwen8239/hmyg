@@ -83,3 +83,18 @@ export const login = () => {
         });
     })
 }
+
+// 封装使用promise的方式调用微信支付接口
+export const requestPayment = (pay) => {
+    return new Promise((resolve,reject) => {
+        wx.requestPayment({
+            ...pay,
+            success: (res) => {
+              resolve(res)
+            },
+            fail: (err) => {
+                reject(err)
+            }
+          });
+    })
+}
