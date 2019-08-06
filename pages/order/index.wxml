@@ -1,11 +1,21 @@
 <!-- 商品订单页面 -->
 <Tabs tabs="{{tabs}}" bindTabsChange="handleTabsChange">
-    <block wx:if="{{tabs[0].isActive}}">
-        <view>
-            
+    <block>
+        <view class="order" wx:for="{{orderList}}" wx:key="user_id">
+            <view class="order_item">
+                <view class="order_row">
+                    <view>订单编号</view>
+                    <view>{{item.order_number}}</view>
+                </view>
+                <view class="order_row">
+                    <view>订单价格</view>
+                    <view class="price">￥{{item.order_price}}</view>
+                </view>
+                <view class="order_row">
+                    <view>订单日期</view>
+                    <view class="data">{{item.create_time_cn}}</view>
+                </view>
+            </view>
         </view>
     </block>
-    <block wx:elif="{{tabs[1].isActive}}">正在开发中...1</block>
-    <block wx:elif="{{tabs[2].isActive}}">正在开发中...2</block>
-    <block wx:elif="{{tabs[3].isActive}}">正在开发中...3</block>
 </Tabs>

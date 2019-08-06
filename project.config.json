@@ -48,7 +48,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 8,
+			"current": 5,
 			"list": [
 				{
 					"id": -1,
@@ -86,17 +86,17 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "授权页面",
+					"id": 5,
+					"name": "支付授权页面",
 					"pathName": "pages/auth/index",
 					"query": "",
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 6,
 					"name": "订单页面",
 					"pathName": "pages/order/index",
-					"query": "",
+					"query": "type=1",
 					"scene": null
 				},
 				{
@@ -108,7 +108,7 @@
 				},
 				{
 					"id": 8,
-					"name": "授权",
+					"name": "用户登录授权",
 					"pathName": "pages/login/index",
 					"query": "",
 					"scene": null
