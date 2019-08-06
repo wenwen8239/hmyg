@@ -13,22 +13,22 @@
 <view class="user_content">
     <!-- 收藏 -->
     <view class="collect">
-        <view class="collect_item">
+        <navigator class="collect_item">
             <view class="num">0</view>
             <view class="text">收藏的店铺</view>
-        </view>
-        <view class="collect_item">
-            <view class="num">0</view>
+        </navigator>
+        <navigator url="/pages/collect/index" class="collect_item">
+            <view class="num">{{collectNum}}</view>
             <view class="text">收藏的商品</view>
-        </view>
-        <view class="collect_item">
+        </navigator>
+        <navigator class="collect_item">
             <view class="num">0</view>
             <view class="text">关注的商品</view>
-        </view>
-        <view class="collect_item">
+        </navigator>
+        <navigator class="collect_item">
             <view class="num">0</view>
             <view class="text">我的足迹</view>
-        </view>
+        </navigator>
     </view>
     <!-- 我的订单 -->
     <view class="order">

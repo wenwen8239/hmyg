@@ -1,7 +1,4 @@
 /* pages/order/index.wxss */
-.order {
-
-}
 .order .order_item {
     font-size: 30rpx;
     padding: 20rpx 30rpx;

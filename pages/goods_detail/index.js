@@ -7,13 +7,18 @@ import { getStorageCart,setStorageCart } from '../../utils/storage';
 Page({
   data: {
     // 商品详情数组
-    goodsDetail: []
+    goodsDetail: [],
+    // 是否收藏
+    isCollect: false
   },
   // 定义一个全局的商品对象
   GoodObj: {},
   onLoad: function (options) {
     // console.log(options)
     this.getGoodsDetail(options.goods_id)
+    
+    const collect = wx.getStorageSync('collect') || [];
+    
   },
   // 获取商品详情数据
   async getGoodsDetail(goods_id) {
@@ -21,6 +26,10 @@ Page({
     // console.log(res)
     // 设置全局商品对象信息
     this.GoodObj = res
+    // 获取本地存储中是否有收藏的商品
+    const collect = wx.getStorageSync('collect') || []
+    // 判断此商品是否收藏过
+    const isCollect = collect.some(v => v.goods_id === this.GoodObj.goods_id);
     this.setData({
       goodsDetail: {
         goods_name: res.goods_name,
@@ -29,7 +38,8 @@ Page({
         // 全部替换 .webp ->  .jpg
         goods_introduce: res.goods_introduce.replace(/\.webp/g,'.jpg'),
         pics: res.pics
-      }
+      },
+      isCollect
     })
   },
   // 实现点击图片全屏预览
@@ -69,5 +79,42 @@ Page({
       icon: 'success',
       mask: true
     })
+  },
+  // 点击收藏图标
+  handleCollect() {
+    // 获取本地存储中的收藏商品数组
+    const collect = wx.getStorageSync('collect') || [];
+    // 判断内存中是否有当前点击收藏的商品对象
+    const index = collect.findIndex(v => v.goods_id === this.GoodObj.goods_id);
+    if (index === -1) {
+      // 如果不存在给数组赋值
+      collect.push(this.GoodObj);
+      // 弹出提示框
+      wx.showToast({
+        title: '收藏成功',
+        icon: 'success',
+        mask: true
+      });
+      // 已收藏
+      this.setData({
+        isCollect: true
+      })
+    }
+    else {
+      // 如果存在执行删除
+      collect.splice(index,1);
+      // 弹出提示框
+      wx.showToast({
+        title: '取消收藏',
+        icon: 'success',
+        mask: true
+      });
+      // 取消收藏
+      this.setData({
+        isCollect: false
+      })
+    }
+    // 把数组存入到缓存中
+    wx.setStorageSync('collect', collect);
   }
 })

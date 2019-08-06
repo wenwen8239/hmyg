@@ -11,8 +11,8 @@
     <!-- 左边文字介绍 -->
     <view class="goods_name">{{goodsDetail.goods_name}}</view>
     <!-- 右边收藏 -->
-    <view class="goods_icon">
-        <text class="iconfont iconshoucang1"></text>
+    <view class="goods_icon" bindtap="handleCollect">
+        <text class="iconfont {{isCollect?'iconshoucang':'iconshoucang1'}}"></text>
         <view>收藏</view>
     </view>
 </view>

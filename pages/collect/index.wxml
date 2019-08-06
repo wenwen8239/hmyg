@@ -1,2 +1,37 @@
-<!--pages/collect/index.wxml-->
-<text>pages/collect/index.wxml</text>
+<!-- 商品收藏页面 -->
+<Tabs tabs="{{tabs}}" bindTabsChange="TabsChange"></Tabs>
+<!-- 收藏商品列表 -->
+<view class="collect">
+    <block wx:if="{{tabs[0].isActive}}">
+        <!-- 标签 -->
+        <view class="tag">
+            <view class="tag_item active">全部</view>
+            <view class="tag_item">正在热卖</view>
+            <view class="tag_item">即将上线</view>
+        </view>
+        <navigator class="collect_list"
+        wx:for="{{collectList}}"
+        wx:key="goods_id"
+        url="/pages/goods_detail/index?goods_id={{item.goods_id}}"
+        >
+            <!-- 图片 -->
+            <view class="image">
+                <image mode="widthFix" src="{{item.goods_small_logo || 'http://ku.90sjimg.com/element_origin_min_pic/18/01/18/726995c65d604ebb91a3d4b771f6b7cc.jpg!/fwfh/804x619/quality/90/unsharp/true/compress/true'}}"/>
+            </view>
+            <!-- 文字内容 -->
+            <view class="content">
+                <view class="name">{{item.goods_name}}</view>
+                <view class="price">￥{{item.goods_price}}</view>
+            </view>
+        </navigator>
+    </block>
+    <block wx:elif="{{tabs[1].isActive}}">
+        <view>此功能正在开发中。。。</view>
+    </block>
+    <block wx:elif="{{tabs[2].isActive}}">
+        <view>此功能正在开发中。。。</view>
+    </block>
+    <block wx:elif="{{tabs[3].isActive}}">
+        <view>此功能正在开发中。。。</view>
+    </block>
+</view>
