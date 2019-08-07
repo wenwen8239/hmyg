@@ -1,4 +1,4 @@
 <!-- 头部搜索栏 -->
 <view class="search">
-  <navigator>搜索</navigator>
+  <navigator url="/pages/search/index">搜索</navigator>
 </view>

@@ -1,1 +1,28 @@
-/* pages/search/index.wxss */
+page {
+    background-color: #ddd;
+    padding: 20rpx;
+}
+.search {
+    display: flex;
+}
+.search input {
+    flex: 5;
+    height: 60rpx;
+    padding-left: 20rpx;
+    background-color: #fff;
+}
+.search button {
+    flex: 1;
+    margin-left: 20rpx;
+}
+.server_list {
+    margin-top: 20rpx;
+}
+.server_list navigator {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 10rpx;
+    background-color: #fff;
+    border-bottom: 1rpx solid #ddd;
+}

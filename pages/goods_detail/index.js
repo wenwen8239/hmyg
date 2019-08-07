@@ -116,5 +116,10 @@ Page({
     }
     // 把数组存入到缓存中
     wx.setStorageSync('collect', collect);
+  },
+  // 上拉触底事件
+  onReachBottom(e) {
+    console.log(e)
+    console.log('滚动条触底了')
   }
 })
